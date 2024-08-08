@@ -1,4 +1,4 @@
-
+@SuppressWarnings("unchecked")
 public class DynamicArray<T> implements Iterable<T> {
 
     private T[] arr;
@@ -48,9 +48,7 @@ public class DynamicArray<T> implements Iterable<T> {
             } else {
                 capacity *= 2; // or just increase the size by some 
                 T[] newArr = (T[]) new Object[capacity];
-                for (int i = 0; i < len; i++) {
-                    newArr[i] = arr[i];
-                }
+                System.arraycopy(arr, 0, newArr, 0, len);
                 arr = newArr;
             }
         }
@@ -129,9 +127,9 @@ public class DynamicArray<T> implements Iterable<T> {
         } else {
             StringBuilder sb = new StringBuilder(len).append("[");
             for (int i = 0; i < len - 1; i++) {
-                sb.append(arr[i] + ", ");
+                sb.append(arr[i]).append(", ");
             }
-            return sb.append(arr[len - 1] + "]").toString();
+            return sb.append(arr[len - 1]).append("]").toString();
         }
     }
 }
