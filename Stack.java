@@ -1,9 +1,10 @@
+// basically just an Array of sorts, which follows LIFO (Last In, First Out)
 
 import java.util.EmptyStackException;
 
 public class Stack<T> implements Iterable<T> {
 
-    private final DoublyLinkedList<T> list = new DoublyLinkedList<>(); // using DoublyLinkedList.java, can also be implemented using java.util.LinkedList
+    private final DoublyLinkedList<T> stack = new DoublyLinkedList<>(); // using DoublyLinkedList.java, can also be implemented using java.util.LinkedList
 
     public Stack() {
     }
@@ -13,7 +14,7 @@ public class Stack<T> implements Iterable<T> {
     }
 
     public int size() {
-        return list.size();
+        return stack.size();
     }
 
     public boolean isEmpty() {
@@ -21,30 +22,30 @@ public class Stack<T> implements Iterable<T> {
     }
 
     public final void push(T item) {
-        list.addLast(item);
+        stack.addLast(item);
     }
 
     public T pop() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        return list.removeLast();
+        return stack.removeLast();
     }
 
     public T peek() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        return list.last();
+        return stack.last();
     }
 
     @Override
     public java.util.Iterator<T> iterator() {
-        return list.iterator();
+        return stack.iterator();
     }
     
     @Override
     public String toString() {
-        return list.toString();
+        return stack.toString();
     }
 }
