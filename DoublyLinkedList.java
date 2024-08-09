@@ -65,6 +65,10 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         addLast(item);
     }
 
+    public void add(T item) {
+        addLast(item);
+    }
+
     public T first() {
         return head.data;
     }
